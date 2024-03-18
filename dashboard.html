@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nicer Garlic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
+              crossorigin="anonymous"> 
+        <link rel="stylesheet" 
+              href="style.css"> 
+        <link rel="stylesheet" href= 
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity= 
+    "sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer" /> 
+
+    </head>
+    <body>
+        <div class="container-fluid p-0 d-flex h-100"> 
+            <div id="bdSidebar" 
+                 class="d-flex flex-column  
+                        flex-shrink-0  
+                        p-3  
+                        text-white offcanvas-md offcanvas-start"> 
+                <a href="#" 
+                   class="navbar-brand"> 
+                </a><hr> 
+                <ul class="mynav nav nav-pills flex-column mb-auto"> 
+                    <img height="100px" width="100px" src="logo.png" align="right"></i>
+                    <li class="nav-item mb-1"> 
+                        <a href="#"> 
+                            <i class="fa fa-home"></i> 
+                            Dashboard 
+                        </a> 
+                    </li> 
+      
+                    <li class="nav-item mb-1"> 
+                        <a href="#"> 
+                            <i class="fa fa-user-secret"></i> 
+                            Smart AI 
+                            <span class="notification-badge"></span> 
+                        </a> 
+                    </li> 
+                    <li class="nav-item mb-1"> 
+                        <a href="#"> 
+                            <i class="fa fa-user-circle"></i> 
+                            Sub Admin 
+                        </a> 
+                    </li> 
+                    <li class="nav-item mb-1"> 
+                        <a href="#"> 
+                            <i class="fa fa-user-circle"></i> 
+                            Farmers 
+                        </a> 
+                    </li> 
+             
+      
+                    <li class="sidebar-item  nav-item mb-1"> 
+                        <a href="#" 
+                           class="sidebar-link collapsed" 
+                           data-bs-toggle="collapse"
+                           data-bs-target="#settings"
+                           aria-expanded="false"
+                           aria-controls="settings"> 
+                            <i class="fas fa-cog pe-2"></i> 
+                            <span class="topic">Settings </span> 
+                        </a> 
+                        <ul id="settings" 
+                            class="sidebar-dropdown list-unstyled collapse" 
+                            data-bs-parent="#sidebar">                            
+                            <li class="sidebar-item"> 
+                                <a href="login.html" class="sidebar-link"> 
+                                    <i class="fas fa-sign-out-alt pe-2"></i> 
+                                    <span class="topic">Log Out</span> 
+                                </a> 
+                            </li> 
+                        </ul> 
+                    </li> 
+                </ul> 
+                <hr> 
+             
+      
+            
+        </div> 
+        <div class="container" style="height: 100%;">            
+        <div  style="background-color: #F1FFF2;">
+               <div class="row">
+                    <p><h2>DASHBOARD</h2></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3"> 
+                        <table border="0" width="100%">
+                            <tr>
+                                <th rowspan="2">
+                             <img src="image.png" width="50" height="50"></th>
+                             <th>
+                            Analyzed Image</th>
+                            </tr>
+                            <tr>
+                                <td><h5 id="ai">0</h5></td>
+                            </tr>
+                       </table>
+                    </div>
+                    <div class="col-lg-3"> 
+                        <table border="0" width="100%">
+                            <tr>
+                                <th rowspan="2">
+                             <img src="image.png" width="50" height="50"></th>
+                             <th>
+                            Uploaded Image</th>
+                            </tr>
+                            <tr>
+                                <td><h5 id="up">0</h5></td>
+                            </tr>
+                       </table>
+                    </div>
+                    <div class="col-lg-3"> 
+                        <table border="0" width="100%">
+                            <tr>
+                                <th rowspan="2">
+                             <img src="crop.png" width="50" height="50"></th>
+                             <th>
+                            Total Projects</th>
+                            </tr>
+                            <tr>
+                                <td><h5 id="crop">0</h5></td>
+                            </tr>
+                       </table>
+                    </div>
+                    <div class="col-lg-3"> <table border="0" width="100%">
+                        <tr>
+                            <th rowspan="2">
+                         <img src="users.png" width="50" height="50"></th>
+                         <th>
+                        Analyzed Image</th>
+                        </tr>
+                        <tr>
+                            <td><h5 id="ru">0</h5></td>
+                        </tr>
+                   </table></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                                                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Upload Image
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">PLANT UPLOADER</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <form action="" id="contactForm">
+                                                    <div class="inputBox">
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" id="basic-addon3">Plant Name</span>
+                                                            <input type="text" class="form-control" id="name" aria-describedby="basic-addon3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="inputBox">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon3">Plant Area</span>
+                                                                    <input type="text" class="form-control" id="area" aria-describedby="basic-addon3">
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="inputBox">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon3">Plant Location</span>
+                                                                    <input type="text" class="form-control" id="address" aria-describedby="basic-addon3">
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="inputBox">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon3">Plant Status</span>
+                                                                    <input type="text" class="form-control" id="status" aria-describedby="basic-addon3">
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="inputBox">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon3">Plant Variety</span>
+                                                                    <input type="text" class="form-control" id="variety" aria-describedby="basic-addon3">
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="inputBox">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon3">Plant Title</span>
+                                                                    <input type="text" class="form-control" id="title" aria-describedby="basic-addon3">
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="inputBox">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="basic-addon3">Plant Image</span>
+                                                                    <input class="form-control" type="file" id="image"  />
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                  
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <div class="inputBox">
+                                            <button type="submit" class="btn btn-outline-success">Submit</button>
+                                        </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-storage.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="credentials.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getStorage,uploadBytes } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js"; 
+        import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"; 
+                
+        // Initialize Firebase
+      
+        var para = new URLSearchParams(window.location.search);
+        var id = para.get("KEY");
+        const app = initializeApp(firebaseConfig);
+        var f = [];
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        var starCountRef = firebase.database().ref('users/' + id );
+            starCountRef.on('value', (snapshot) => {
+            const data = snapshot.val();           
+            if(data==null){
+                firebase.database().ref('users/'+id).set({
+                    id:id,
+                });
+            }
+            else{
+                console.log(data);
+            }
+            });
+      </script>
+</body>
+</html>

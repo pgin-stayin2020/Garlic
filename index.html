@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>Blogs</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+
+     <div class="container mt-2">
+         <div class="card">
+             <div class="card-body">
+                 <form id="post-form">
+                    <h1>PLANT UPLOADER</h1>
+                    <div class="inputBox">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Plant Name</span>
+                            <input type="text" class="form-control" id="name" aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="inputBox">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">Plant Area</span>
+                                    <input type="text" class="form-control" id="area" aria-describedby="basic-addon3">
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="inputBox">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">Plant Location</span>
+                                    <input type="text" class="form-control" id="address" aria-describedby="basic-addon3">
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="inputBox">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">Plant Status</span>
+                                    <input type="text" class="form-control" id="status" aria-describedby="basic-addon3">
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="inputBox">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">Plant Variety</span>
+                                    <input type="text" class="form-control" id="variety" aria-describedby="basic-addon3">
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="inputBox">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">Plant Title</span>
+                                    <input type="text" class="form-control" id="title" aria-describedby="basic-addon3">
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="inputBox">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon3">Plant Image</span>
+                                    <textarea id="post" class="form-control" placeholder="What's on your mind..."></textarea>
+                                    <input type="file" class="form-control" id="image" accept="images/*">
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-success" onclick="upload()">Upload</button>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                   
+
+                 </form>
+              </div>
+
+         </div>
+         <div class="row mt-4" id="posts">
+
+         </div>
+
+     </div>
+
+
+
+
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first...make sure you remove -app from below line -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD9GQ8dEhSsyXdvz6-1yjpB2-ne_cfjnjk",
+      authDomain: "ahp-gis-model.firebaseapp.com",
+      databaseURL: "https://ahp-gis-model-default-rtdb.firebaseio.com",
+      projectId: "ahp-gis-model",
+      storageBucket: "ahp-gis-model.appspot.com",
+      messagingSenderId: "1039484628218",
+      appId: "1:1039484628218:web:0a71aded7355a5b158ad43",
+      measurementId: "G-XRECQGDB7V"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="defualt.js"></script>
+    </body>
+</html>
