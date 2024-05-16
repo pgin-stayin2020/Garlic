@@ -80,74 +80,53 @@
                     </li> 
                 </ul> 
                 <hr> 
-             
-      
-            
-        </div> 
+      </div> 
         <div class="container" style="height: 100%;">            
-        <div  style="background-color: #F1FFF2;">
-               <div class="row">
-                    <p><h2>DASHBOARD</h2></p>
+        <div  style="background-color: #F1FFF2;">           
+                <br> <br>
+                <div class="row" align="center">
+                <h2 id="titlesx">Rounded Corners</h2>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3"> 
-                        <table border="0" width="100%">
-                            <tr>
-                                <th rowspan="2">
-                             <img src="image.png" width="50" height="50"></th>
-                             <th>
-                            Analyzed Image</th>
-                            </tr>
-                            <tr>
-                                <td><h5 id="ai">0</h5></td>
-                            </tr>
-                       </table>
+                <br>                
+                <div class="container">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <img id="imgss" src="cinqueterre.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236"> 
+                      </div>
+                      <div class="col-sm-6">
+                        <p id="names">NAME : </p>
+                        <p id="loc">LOCATION : </p>
+                        <p id="areas">AREA : </p>
+                        <p id="titles">TITLE : </p>
+                        <p id="varie">VARIETY : </p>
+                        <p id="stat">STATUS : </p>
+                      </div>
                     </div>
-                    <div class="col-lg-3"> 
-                        <table border="0" width="100%">
-                            <tr>
-                                <th rowspan="2">
-                             <img src="image.png" width="50" height="50"></th>
-                             <th>
-                            Uploaded Image</th>
-                            </tr>
-                            <tr>
-                                <td><h5 id="up">0</h5></td>
-                            </tr>
-                       </table>
-                    </div>
-                    <div class="col-lg-3"> 
-                        <table border="0" width="100%">
-                            <tr>
-                                <th rowspan="2">
-                             <img src="crop.png" width="50" height="50"></th>
-                             <th>
-                            Total Projects</th>
-                            </tr>
-                            <tr>
-                                <td><h5 id="crop">0</h5></td>
-                            </tr>
-                       </table>
-                    </div>
-                    <div class="col-lg-3"> <table border="0" width="100%">
-                        <tr>
-                            <th rowspan="2">
-                         <img src="users.png" width="50" height="50"></th>
-                         <th>
-                        Analyzed Image</th>
-                        </tr>
-                        <tr>
-                            <td><h5 id="ru">0</h5></td>
-                        </tr>
-                   </table></div>
-                </div>
+                  </div>
                 <br>
-                <div class="row">
+                <div class="container">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Edit
+                        </button>               
+
+                      </div>
+                      <div class="col-sm-3">
+                        <button type="button" class="btn btn-warning" id="dels">
+                            Delete
+                        </button>        
+                      </div>
+                      <div class="col-sm-3">
+                        <button type="button" class="btn btn-danger" id="baks">
+                            Back
+                        </button>        
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">                    
                     <div class="col-lg-3">
-                                                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Upload Image
-                                </button>               
+                                                                <!-- Button trigger modal --
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -224,7 +203,7 @@
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <div class="inputBox">
-                                            <button type="submit" class="btn btn-outline-success">Submit</button>
+                                            <button type="submit" class="btn btn-outline-success" id="subs">Submit</button>
                                         </div>
                                         </form>
                                         </div>
@@ -232,7 +211,9 @@
                                     </div>
                                 </div>
                         </div>
+                        
                     </div>
+                   
             </div>
             <div class="col-lg-9" id="bod">
                         <div id="myDiv"></div>
@@ -251,143 +232,131 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getStorage,uploadBytes,ref,uploadBytesResumable,getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";    
         // Initialize Firebase
-       
-        var para = new URLSearchParams(window.location.search);
-        var id = para.get("KEY");        
         const app = initializeApp(firebaseConfig);
         firebase.initializeApp(firebaseConfig);       
         var database = firebase.database();
-        var starCountRef = firebase.database().ref('users/' + id );   
-            starCountRef.on('value', (snapshot) => {
-            const data = snapshot.val();           
-            if(data==null){
-                var newContactForm = starCountRef.push();
-                newContactForm.set({
-                    id: id,
-                    });
+        var para = new URLSearchParams(window.location.search);
+        var area =  document.getElementById("area");
+        var address =  document.getElementById("address");
+        var status =  document.getElementById("status");
+        var variety =  document.getElementById("variety");
+        var title =  document.getElementById("title");
+        var imgt="";
+        var id = para.get("USER");       
+        var pid = para.get("KEY");   
+        var tits = document.getElementById("titlesx").innerHTML=pid; 
+        var x = firebase.database().ref('users/' + id +'/plants/'+pid);
+        x.on('value',function(snapshot){
+            var data = snapshot.val();   
+            var image = document.getElementById("imgss").src=data.image;
+            imgt=image;
+            document.getElementById("names").innerHTML="NAME: "+data.name;
+            document.getElementById("loc").innerHTML="LOCATION: "+data.address;
+            address.value=data.address;
+            document.getElementById("areas").innerHTML="AREA: "+data.area;
+            area.value=data.area;
+            document.getElementById("titles").innerHTML="TITLE: "+data.title;
+            title.value=data.title;
+            document.getElementById("varie").innerHTML="VARIETY: "+data.variety;
+            variety.value=data.variety;
+            document.getElementById("stat").innerHTML="STATUS: "+data.status;
+            status.value=data.status;
+            console.log(data);
+        });
+        console.log(x);
+        const box = document.getElementById('dels');
+        const box1 = document.getElementById('baks');
+        const box2 = document.getElementById('contactForm').addEventListener("submit", submitForm);;
+        box1.addEventListener('click', () => {
+                var para = new URLSearchParams();
+                para.append("KEY", id);
+                location.href = "dashboard.html?" + para.toString();            
+        });
+        box.addEventListener('click', () => {
+            let text = "Do you want to delete?";
+            if (confirm(text) == true) {
+                x.remove();
+                var para = new URLSearchParams();
+                para.append("KEY", id);
+                location.href = "dashboard.html?" + para.toString();
+            } else {
+                console.log("Cancel");
             }
-            else{
-                console.log(data);
-            }
-            });        
-        document.getElementById("contactForm").addEventListener("submit", submitForm);
-        getAll();
-        function getAll(){
-            var x = firebase.database().ref('users/' + id +'/plants/');
-            let userProfiles = [];
-            var i=0;
-            x.on('value',function(snapshot){
-                document.getElementById("myDiv").innerHTML = ""; 
-                var data = snapshot.val();    
-                for (let key in data) {
-               
-                    console.log(key); // The key
-                    console.log(data[key]); // The value
-                    userProfiles[i]=data[key];
-                    i++;
-                    console.log(data[key].address);
-                    var img = document.createElement("img");
-                    // Set the source of the image
-                    img.src = data[key].image;
-                    // Set other attributes (optional)
-                    img.alt =  data[key].name;
-                    img.width = 250;
-                    img.height = 250;
-                    img.style=" padding: 15px; ";
-                    img.title =  data[key].name;
-                    // Append the image element to the div
-                    var div = document.getElementById("myDiv");
-                    var a = document.createElement("a");      
-                    var para1 = new URLSearchParams();
-                    para1.append("USER", id);      
-                    para1.append("KEY", key);       // create an anchor element
-                    var href = "plants.html?" + para1.toString();
-                    a.href =  href;        
-                    a.appendChild(img);
-                    div.appendChild(a);
-                    }
-                    document.getElementById("up").innerHTML=i;
-            });
-        }
+        });
         function submitForm(e) {
             e.preventDefault();  
-            var name = getElementVal("name");
-            var image =document.getElementById("image").files[0].name; 
-           
-            const fileInput = document.getElementById("image");
-            const file = fileInput.files[0]; // Get the selected file
-            var x = document.createElement("IMG");
-            x.setAttribute("src","C:\\Uploads\\"+image);
-            x.setAttribute("width", "304");
-            x.setAttribute("height", "228");
-            x.setAttribute("alt", name);
-            x.setAttribute("id", "myImage");
-            var storage = getStorage();           
-            var imgx="gs://nicer-garlic-app.appspot.com/garlicImageData/"+name+".jpeg";
-            const imageRef = ref(storage, "garlicImageData/"+name+".jpeg");
-            uploadBytes(imageRef, file).then((snapshot) => {                
+            var image =document.getElementById("image").value; 
+            var url="";
+            area = getElementVal("area");
+            address = getElementVal("address");
+            status = getElementVal("status");
+            variety = getElementVal("variety");
+            title = getElementVal("title");
+            if(image!=""){
+                var image =document.getElementById("image").files[0].name;            
+                const fileInput = document.getElementById("image");
+                const file = fileInput.files[0]; // Get the selected file
+                var x = document.createElement("IMG");
+                x.setAttribute("src","C:\\Uploads\\"+image);
+                x.setAttribute("width", "304");
+                x.setAttribute("height", "228");
+                x.setAttribute("alt", name);
+                x.setAttribute("id", "myImage");
+                var storage = getStorage();           
+                var imgx="gs://nicer-garlic-app.appspot.com/garlicImageData/"+name+".jpeg";
+                const imageRef = ref(storage, "garlicImageData/"+name+".jpeg");
+                uploadBytes(imageRef, file).then((snapshot) => {                
                 var pp = firebase.storage().ref(imageRef._location.path_).getDownloadURL() .then((url) => {
                             document.getElementById('mid').value = url;
                             var temp= document.getElementById('mid').value;
-                            console.log(temp);
-                            var area = getElementVal("area");
-                            var address = getElementVal("address");
-                            var status = getElementVal("status");
-                            var variety = getElementVal("variety");
-                            var title = getElementVal("title");
-                            myFunction(name, area, address,status,variety,title,url);
+                            console.log(temp);                          
+                            myFunction(area, address,status,variety,title,url);
                             getAll();
                         })
                         .catch((error) => {
                             console.error('Error getting download URL:', error);
                         });
               });
-         
-           
-        //  savePlant(name, area, address,status,variety,title,image);
-            
-            //   reset the form
-        // document.getElementById("contactForm").reset();
+            }        
+            myFunction1(area, address,status,variety,title);          
+            window.location.reload();
         }
-
-        function myFunction(name, area, address, status, variety, title, image) {
-           
-          var starCountRef1 = firebase.database().ref('users/' + id +'/plants/');
-            starCountRef1.on('value', (snapshot) => {
-                                const data = snapshot.val();   
-                                console.log(data);        
-                                if(data==null){
-                                    firebase.database().ref('users/'+id+'/plants/'+name).set({
-                                        name: name,
-                                        area: area,
-                                        address: address,
-                                        status: status,
-                                        variety: variety,
-                                        title: title,
-                                        image: image,                                     
-                                 });
-                                 console.log("Image uploaded successfully!");   
-                                 alert("Success");
-                                 document.getElementById("contactForm").reset();
-                                }
-                                if(data!=null){
-                                    firebase.database().ref('users/'+id+'/plants/'+name).set({
-                                        name: name,
-                                        area: area,
-                                        address: address,
-                                        status: status,
-                                        variety: variety,
-                                        title: title,
-                                        image: image,
-                                     
-                                 });
-                                 console.log("Image uploaded successfully!");  
-                                 document.getElementById("contactForm").reset();
-                                }
-            });
-        }
-
-        
+        function myFunction(area, address, status, variety, title, image) {           
+           var starCountRef1 = firebase.database().ref('users/' + id +'/plants/'+pid);
+             starCountRef1.on('value', (snapshot) => {
+                                 const data = snapshot.val();                               
+                                     firebase.database().ref('users/'+id+'/plants/'+pid).update({
+                                         name: pid,
+                                         area: area,
+                                         address: address,
+                                         status: status,
+                                         variety: variety,
+                                         title: title,
+                                         image: image,                                      
+                                  });
+                                  console.log("Image uploaded successfully!");  
+                                  document.getElementById("contactForm").reset();
+                                 
+             });
+         }
+         function myFunction1(area, address, status, variety, title) {           
+           var starCountRef1 = firebase.database().ref('users/' + id +'/plants/'+pid);
+             starCountRef1.on('value', (snapshot) => {
+                                 const data = snapshot.val();                               
+                                     firebase.database().ref('users/'+id+'/plants/'+pid).update({
+                                         name: pid,
+                                         area: area,
+                                         address: address,
+                                         status: status,
+                                         variety: variety,
+                                         title: title,     
+                                         image: imgt,                             
+                                  });
+                                  console.log("Image uploaded successfully!");  
+                                  document.getElementById("contactForm").reset();
+                                 
+             });
+         }
         const getElementVal = (id) => {
             return document.getElementById(id).value;
         };
